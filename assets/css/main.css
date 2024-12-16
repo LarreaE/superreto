@@ -160,8 +160,65 @@ h6 {
 .header .profile-img img {
   margin: 15px auto;
   display: block;
-  width: 120px;
-  border: 8px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  width: 80px;
+  height: 50px;
+}
+
+/* Contenedor principal */
+.responsive-container {
+  overflow: hidden;
+}
+
+/* Estilo para cada item (con la imagen y el texto) */
+.resume-item {
+  width: 100%;
+  position: relative;
+  padding-bottom: 1rem; /* Espacio inferior entre texto e imagen */
+  overflow: hidden; /* Asegura que la imagen no ocupe espacio antes del hover */
+}
+
+/* Párrafo */
+.resume-item p {
+  position: relative;
+  z-index: 2;
+  margin-top: 1rem;
+}
+
+/* Contenedor de la imagen */
+.img-container {
+  width: 100%;
+  height: 0; /* La altura es 0 inicialmente */
+  overflow: hidden; /* La imagen está oculta inicialmente */
+  transition: height 0.5s ease; /* Animación de expansión de la altura */
+}
+
+/* Estilo de la imagen */
+.img-container img {
+  opacity: 0;
+  transform: translateY(-20px); /* La imagen comienza desplazada hacia arriba */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  width: 100%;
+  height: auto; /* Asegura que la imagen mantenga su proporción */
+  object-fit: cover; /* La imagen cubre completamente el espacio sin distorsionarse */
+  border-radius: 7px 7px 7px;
+}
+
+/* Al hacer hover sobre el item, la imagen y el contenedor se expanden */
+.hover-item:hover .img-container {
+  height: 300px; /* Define la altura máxima de la imagen cuando se expande */
+}
+
+.hover-item:hover .img-container img {
+  opacity: 1;
+  transform: translateY(0); /* La imagen se mueve hacia su posición normal */
+}
+
+/* Estilo del texto sobre la imagen */
+.resume-item p {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente para mejor legibilidad */
+  padding: 1rem;
 }
 
 .header .logo {
